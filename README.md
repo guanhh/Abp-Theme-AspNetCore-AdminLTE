@@ -2,8 +2,8 @@
 abp vnext ui 模块，基于 AdminLTE3
 
 ## 样例
-![01](screenshots/01.png)
+![01](https://gitee.com/guan2h/abp-vnext-theme/raw/master/screenshots/01.PNG)
 
-![02](screenshots/02.png)
+![02](https://gitee.com/guan2h/abp-vnext-theme/raw/master/screenshots/02.PNG)
 
-![03](screenshots/03.png)
+![03](https://gitee.com/guan2h/abp-vnext-theme/raw/master/screenshots/03.PNG)
