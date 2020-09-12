@@ -1,0 +1,16 @@
+﻿@using System.Linq
+@model AdminLTE.Abp.AspNetCore.Mvc.UI.Theme.Basic.Themes.Basic.Components.ToolBar.LanguageSwitch.LanguageSwitchViewComponentModel
+@if (Model.OtherLanguages.Any())
+{
+    <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg" style="margin-top: 3px">
+            <span>@Model.CurrentLanguage.DisplayName</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+            @foreach (var language in Model.OtherLanguages)
+            {
+                <a class="dropdown-item" href="~/Abp/Languages/Switch?culture=@(language.CultureName)&uiCulture=@(language.UiCultureName)&returnUrl=@Context.Request.Path">@language.DisplayName</a>
+            }
+        </div>
+    </li>
+}

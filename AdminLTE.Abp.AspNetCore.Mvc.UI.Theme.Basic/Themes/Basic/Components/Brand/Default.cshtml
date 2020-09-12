@@ -1,0 +1,7 @@
+﻿@using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Components
+@inject IBrandingProvider BrandingProvider
+
+<a href="~/" class="brand-link">
+    <img src="@BrandingProvider.LogoUrl" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">@BrandingProvider.AppName</span>
+</a>

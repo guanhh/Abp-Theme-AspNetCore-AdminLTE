@@ -1,0 +1,57 @@
+﻿
+@using Volo.Abp.UI.Navigation
+@model ApplicationMenu
+@foreach (var menuItem in Model.Items)
+{
+    var elementId = string.IsNullOrEmpty(menuItem.ElementId) ? string.Empty : $"id=\"{menuItem.ElementId}\"";
+    var cssClass = string.IsNullOrEmpty(menuItem.CssClass) ? string.Empty : menuItem.CssClass;
+    var disabled = menuItem.IsDisabled ? "disabled" : string.Empty;
+    if (menuItem.IsLeaf)
+    {
+        if (menuItem.Url != null)
+        {
+            <li class="nav-item @cssClass @disabled" @elementId>
+                <a class="nav-link" href="@(menuItem.Url ?? "#")">
+                    @if (menuItem.Icon != null)
+                    {
+                        if (menuItem.Icon.StartsWith("fa"))
+                        {
+                            <i class="@menuItem.Icon nav-icon"></i>
+                        }
+                    }
+                    <p>
+                        @menuItem.DisplayName
+                    </p>
+                </a>
+            </li> 
+        }
+    }
+    else
+    {
+        <li class="nav-item">
+
+            <a class="nav-link" href="#" id="Menu_@(menuItem.Name)">
+                @if (menuItem.Icon != null)
+                {
+                    if (menuItem.Icon.StartsWith("fa"))
+                    {
+                        <i class="@menuItem.Icon nav-icon"></i>
+                    }
+                }
+            <p>
+                @menuItem.DisplayName
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            <ul class="nav nav-treeview" aria-labelledby="Menu_@(menuItem.Name)">
+                <li class="nav-item">
+                    @foreach (var childMenuItem in menuItem.Items)
+                    {
+                        @await Html.PartialAsync("~/Themes/Basic/Components/SideBar/_MenuItem.cshtml", childMenuItem)
+                    }
+                </li>
+            </ul>
+
+        </li>
+    }
+}
