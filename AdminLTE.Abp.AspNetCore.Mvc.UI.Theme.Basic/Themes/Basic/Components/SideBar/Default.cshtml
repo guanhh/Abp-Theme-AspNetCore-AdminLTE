@@ -38,18 +38,19 @@
                         <i class="@menuItem.Icon nav-icon"></i>
                     }
                 }
-            <p>
-                @menuItem.DisplayName
-                <i class="right fas fa-angle-left"></i>
-            </p>
+                <p>
+                    @menuItem.DisplayName
+                    <i class="right fas fa-angle-left"></i>
+                </p>
             </a>
+
             <ul class="nav nav-treeview" aria-labelledby="Menu_@(menuItem.Name)">
-                <li class="nav-item">
-                    @foreach (var childMenuItem in menuItem.Items)
-                    {
-                        @await Html.PartialAsync("~/Themes/Basic/Components/SideBar/_MenuItem.cshtml", childMenuItem)
-                    }
-                </li>
+            
+                  @foreach (var childMenuItem in menuItem.Items)
+                  {
+                      @await Html.PartialAsync("~/Themes/Basic/Components/SideBar/_MenuItem.cshtml", childMenuItem)
+                  }
+            
             </ul>
 
         </li>
